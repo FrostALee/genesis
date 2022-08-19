@@ -1,3 +1,15 @@
+*{
+  background-color: #111;
+}
+
+span{
+  background-color: transparent;
+}
+
+div{
+  background-color: transparent;
+}
+
 .App {
   text-align: center;
 }
