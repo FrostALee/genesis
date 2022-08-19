@@ -8,7 +8,7 @@ import Logo from "../Img/logo.webp"
 function Header () {
 
     return(
-        <AllWrap>
+        <AllWrap> 
             <HeaderWrap>
                 <HeaderLeftWrap>
                         <LogoBox/>
@@ -43,26 +43,29 @@ const AllWrap = styled.div`
     position: fixed;
     padding: 20px;
     width: 100%;
-    top: 0; left: 0;
-    display: block;
-    /* flex-flow: row wrap;
+    top: 0; 
+    left: 0;
+    display: flex;
     justify-content: center;
-    align-items: center; */
+    align-items: center;
+    z-index: 10;
 `
 
 const HeaderWrap = styled.div`
     background-color: #111;
     /* position: fixed; */
     display: flex;
-    flex-flow: row wrap;
+    /* flex-flow: row wrap; */
     justify-content: space-between;
+    width: 1920px;
     max-width: 1920px;
-    margin: 0 auto;
-    /* padding: 0 140px; */
+    margin: 0px auto;
+    padding: 20px 40px;
     /* height: 30px; */
     box-sizing: border-box;
+    -webkit-box-pack: justify;
 
-    /* border: 1px solid white; */
+    border: 1px solid white;
 `
 
 const HeaderLeftWrap = styled.div`
@@ -71,7 +74,7 @@ const HeaderLeftWrap = styled.div`
     justify-content: center;
     align-items: center;
 
-    /* border: 1px solid white; */
+    border: 1px solid white;
 `
 
 const HeaderRightWrap = styled.div`
@@ -81,7 +84,7 @@ const HeaderRightWrap = styled.div`
     align-items: center;
     float: right;
 
-    /* border: 1px solid white; */
+    border: 1px solid white;
 `
 
 const LogoBox = styled.div`
@@ -89,8 +92,8 @@ const LogoBox = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    width: 84px;
-    height: 17px;
+    width: 120px;
+    height: 26px;
     cursor: pointer;
 `
 
@@ -101,24 +104,24 @@ const HeaderUl = styled.ul`
 `
 
 const HeaderMenu = styled.li`
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     line-height: 21px;
-    color: white;
+    color: ghostwhite;
     display: inline-block;
     list-style: none;
-    margin-right: 20px;
+    margin: 0 30px;
     cursor: pointer;
 `
 
 const HeaderRight = styled.li`
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     line-height: 21px;
-    color: white;
+    color: ghostwhite;
     display: inline-block;
     list-style: none;
-    margin-right: 20px;
+    margin: 0 20px;
     cursor: pointer;    
 `
 

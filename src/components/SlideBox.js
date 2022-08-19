@@ -15,25 +15,7 @@ import Image07 from "../Img/genesis-main-keyvisual-electrified-g80-main-hero-des
 function SlideBox () {
 
     const SlideRef = useRef(null)
-    // const TotalSlide = 7
-
-    const [slide, setSlide] = useState(0);
-
-    // console.log(slide)
-
-    function carousel(container) {
-        const slider = container.querySelector('.slider');
-        const items = slider.querySelectorAll('.item');
-
-        const sliderVisibleWidth = slider.offsetWidth;
-
-        function getTotalItemsWidth(items) {
-            const { left } = items[0].getBoundingClientRect();
-            const { right } = items[items.length - 1].getBoundingClientRect();
-            return right - left;
-          }
-      }
-
+    const [slide, setSlide] = useState(0);   
     
 
     const NextSlide = () => {
@@ -56,6 +38,10 @@ function SlideBox () {
     useEffect(() => {
         SlideRef.current.style.transition = 'all 0.5s ease-in-out'
         SlideRef.current.style.transform = `translateX(-${slide}00%)`
+
+        document.addEventListener("drag", event => {
+            NextSlide()
+        })
     })
 
     return(
@@ -63,6 +49,7 @@ function SlideBox () {
             <SlideWrap >
 
                 <SlideBoxWrap >
+
                         <TextBox style={{display : slide === 0 ? "" : "none"}}>
                             <TitleText>GENESIS</TitleText>
                             <TitleName>G70 SHOOTING BRAKE</TitleName>
@@ -97,7 +84,8 @@ function SlideBox () {
                             <TitleName>G80</TitleName>
                             <TitleSub>전기차 그 이상의 시작</TitleSub>
                         </TextBox>
-                    <SlideBoxWrap01 ref={SlideRef} id="slider">
+
+                    <SlideBoxWrap01 ref={SlideRef}>
                         <Image src={Image01} />
                         <Image src={Image02} />
                         <Image src={Image03} />
@@ -106,6 +94,7 @@ function SlideBox () {
                         <Image src={Image06} />
                         <Image src={Image07} />
                     </SlideBoxWrap01>
+
                         <DetailBox style={{display : slide === 5 ? "none" : ""}}>
                             <TextDetail>더 알아보기</TextDetail>
                             <TextDetail>견적내기</TextDetail>
@@ -114,8 +103,11 @@ function SlideBox () {
                             <TextDetail>더 알아보기</TextDetail>
                             <TextDetail>영상보기</TextDetail>
                         </DetailBox>
+
                 </SlideBoxWrap>
+
                 <ButtonBox>
+
                     <LeftButtonDiv onClick={() => {PrevSlide()}}>
                         <PrevButton/>
                     </LeftButtonDiv>
@@ -131,7 +123,9 @@ function SlideBox () {
                     <RightButtonDiv onClick={() => {NextSlide()}}>
                         <NextButton />
                     </RightButtonDiv>
+
                 </ButtonBox>
+                
             </SlideWrap>
         </AllWrap>
     )
@@ -159,6 +153,10 @@ const SlideBoxWrap = styled.div`
     height: 750px;
 `
 
+const SlideTextWrap = styled.div`
+    z-index: 5;
+`
+
 
 const SlideBoxWrap01 = styled.div`
     display: flex;
@@ -173,7 +171,7 @@ const TextBox = styled.div`
     margin-top: 100px;
     font-family: "genesis";
     font-weight: normal;
-    line-height: 1.0667;
+    line-height: 1.0667em;
     letter-spacing: -0.025em;
     word-break: keep-all;
     word-wrap: break-word;
