@@ -10,12 +10,12 @@ import Image06 from "../Img/genesis-main-keyvisual-futuring-genesis-pc-2560x900-
 import Image07 from "../Img/genesis-main-keyvisual-electrified-g80-main-hero-desktop-2560x900-kr.webp"
 
 
-
-
 function SlideBox () {
 
-    const SlideRef = useRef(null)
-    const [slide, setSlide] = useState(0);   
+    const SlideRef = useRef(null);
+    const [slide, setSlide] = useState(0);
+    
+    const TotalSlide = 6;
     
 
     const NextSlide = () => {
@@ -36,7 +36,7 @@ function SlideBox () {
     }
 
     useEffect(() => {
-        SlideRef.current.style.transition = 'all 0.5s ease-in-out'
+        SlideRef.current.style.transition = 'all 0.75s ease-in-out'
         SlideRef.current.style.transform = `translateX(-${slide}00%)`
 
         document.addEventListener("drag", event => {
@@ -125,7 +125,7 @@ function SlideBox () {
                     </RightButtonDiv>
 
                 </ButtonBox>
-                
+
             </SlideWrap>
         </AllWrap>
     )
@@ -151,17 +151,15 @@ const SlideBoxWrap = styled.div`
     display: block;
     width: 100%;
     height: 750px;
+    /* position: relative; */
 `
-
-const SlideTextWrap = styled.div`
-    z-index: 5;
-`
-
 
 const SlideBoxWrap01 = styled.div`
     display: flex;
-    width: 100%;
-    height: 750px;
+    max-width: 100%;
+    min-width: 720px;
+    min-height: 750px;
+    max-height: 1080px;
     z-index: -1;
 `
 
@@ -179,12 +177,6 @@ const TextBox = styled.div`
     position: absolute;
     width: 100%;
     z-index: 2;
-    transition: all 1s ease-in-out;
-    transition-property: opacity, transform;
-    transition-duration: 2s, 2s;
-    opacity: 100%;
-    transform: translateX(-5%);
-    background-color: transparent;
 `
 
 const DetailBox = styled.div`
@@ -197,7 +189,7 @@ const DetailBox = styled.div`
     letter-spacing: -0.025em;
     word-break: keep-all;
     word-wrap: break-word;
-    padding-left: 160px;
+    padding-left: 226px;
     position: absolute;
     top: 570px;
     width: 100%;
@@ -246,9 +238,10 @@ const TitleSub = styled.span`
 
 const TextDetail = styled.span`
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.0667;
     color: white;
+    cursor: pointer;
 `
 
 const ButtonBox = styled.div`

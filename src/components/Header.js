@@ -65,7 +65,7 @@ const HeaderWrap = styled.div`
     box-sizing: border-box;
     -webkit-box-pack: justify;
 
-    border: 1px solid white;
+    /* border: 1px solid white; */
 `
 
 const HeaderLeftWrap = styled.div`
@@ -74,7 +74,7 @@ const HeaderLeftWrap = styled.div`
     justify-content: center;
     align-items: center;
 
-    border: 1px solid white;
+    /* border: 1px solid white; */
 `
 
 const HeaderRightWrap = styled.div`
@@ -84,7 +84,7 @@ const HeaderRightWrap = styled.div`
     align-items: center;
     float: right;
 
-    border: 1px solid white;
+    /* border: 1px solid white; */
 `
 
 const LogoBox = styled.div`
