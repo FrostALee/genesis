@@ -5,7 +5,9 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header"
 import SlideBox from "./components/SlideBox";
 import Models from "./components/Models"
-import Card from "./components/Card";
+import RolePage from "./components/RolePage";
+import Functional from "./components/Funtional";
+import NeerContent from "./components/NeerContent";
 
 import "./App.css"
 
@@ -16,6 +18,9 @@ function App() {
     <Header/>
     <SlideBox/>
     <Models/>
+    <RolePage/>
+    <Functional/>
+    <NeerContent/>
     </>
   );
 }

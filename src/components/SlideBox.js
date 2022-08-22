@@ -133,24 +133,26 @@ function SlideBox () {
 
 const AllWrap = styled.div`
     width: 100%;
-    height: 100%;
+    height: 900px;
     margin-top: 60px;
     /* position: relative; */
+    /* border: 1px solid white; */
 `
 
 const SlideWrap = styled.div`
     display: flex;
     width: 100%;
-    height: 750px;
+    height: 100%;
     /* overflow: hidden; */
     margin: 0 auto;
     cursor: grab;
+    /* border: 1px solid white; */
 `
 
 const SlideBoxWrap = styled.div`
     display: block;
     width: 100%;
-    height: 750px;
+    height: 100%;
     /* position: relative; */
 `
 
@@ -158,8 +160,7 @@ const SlideBoxWrap01 = styled.div`
     display: flex;
     max-width: 100%;
     min-width: 720px;
-    min-height: 750px;
-    max-height: 1080px;
+    height: 100%;
     z-index: -1;
 `
 
@@ -195,7 +196,6 @@ const DetailBox = styled.div`
     width: 100%;
 `
 
-
 const TitleText = styled.span`
     font-size: 18px;
     font-weight: 700;
@@ -206,12 +206,11 @@ const TitleText = styled.span`
     /* margin-block-end: 0.83em; */
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-
 `
 
 const TitleName = styled.span`
     font-size: 60px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 21px;
     color: white;
     /* margin-left: 60px; */
@@ -219,7 +218,6 @@ const TitleName = styled.span`
     margin-block-end: 30px;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-
 `
 
 const TitleSub = styled.span`
@@ -233,8 +231,6 @@ const TitleSub = styled.span`
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 `
-
-
 
 const TextDetail = styled.span`
     font-size: 14px;
@@ -252,8 +248,8 @@ const ButtonBox = styled.div`
     word-wrap: break-word;
     /* padding-left: 226px; */
     position: absolute;
-    top: 670px;
-    left: 750px;
+    top: 850px;
+    left: 850px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -262,6 +258,7 @@ const ButtonBox = styled.div`
 
 const Image = styled.img`
     object-fit: cover;
+    /* overflow-x: hidden; */
     width: 100%;
     height: 100%;
 `

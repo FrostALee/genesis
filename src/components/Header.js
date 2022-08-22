@@ -4,6 +4,7 @@ import styled from "styled-components"
 import Support from "../Img/support-icon.webp"
 import Mypage from "../Img/mypage-icon.webp"
 import Logo from "../Img/logo.webp"
+import Search from "../Img/icon-search.webp"
 
 function Header () {
 
@@ -23,12 +24,11 @@ function Header () {
                     </div>
                 </HeaderLeftWrap>
                 <HeaderRightWrap>
-                    <div>
                         <HeaderUl>
                         <HeaderRight>고객센터</HeaderRight>
                         <HeaderRight>마이 페이지</HeaderRight>
                         </HeaderUl>
-                    </div>
+                        <SearchIMG />
                 </HeaderRightWrap>
                 <div>
 
@@ -41,7 +41,7 @@ function Header () {
 const AllWrap = styled.div`
     background-color: #111;
     position: fixed;
-    padding: 20px;
+    /* padding: 20px; */
     width: 100%;
     top: 0; 
     left: 0;
@@ -49,6 +49,7 @@ const AllWrap = styled.div`
     justify-content: center;
     align-items: center;
     z-index: 10;
+    padding-left: 150px;
 `
 
 const HeaderWrap = styled.div`
@@ -83,6 +84,7 @@ const HeaderRightWrap = styled.div`
     justify-content: center;
     align-items: center;
     float: right;
+    margin-left: 320px;
 
     /* border: 1px solid white; */
 `
@@ -112,6 +114,7 @@ const HeaderMenu = styled.li`
     list-style: none;
     margin: 0 30px;
     cursor: pointer;
+    
 `
 
 const HeaderRight = styled.li`
@@ -123,6 +126,18 @@ const HeaderRight = styled.li`
     list-style: none;
     margin: 0 20px;
     cursor: pointer;    
+`
+
+const SearchIMG = styled.div`
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+/* border: 1px solid white; */
+    background-image: url(${Search});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 `
 
 export default Header

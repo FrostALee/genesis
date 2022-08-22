@@ -3,6 +3,11 @@ import styled from "styled-components"
 
 import Card from "./Card"
 
+import Image01 from "../Img/Build-And-Price_black_60x60_hover.gif"
+import Image02 from "../Img/Price_black_60x60_hover.gif"
+import Image03 from "../Img/Book-a-Test-Drive_black_60x60_hover.gif"
+import Image04 from "../Img/Download-E-Brochure_black_60x60_hover.gif"
+
 function Models () {
     const scrollRef = useRef(null);
     const [isDrag, setIsDrag] = useState(false);
@@ -31,6 +36,20 @@ function Models () {
       }
     }
   };
+
+  const BuyPlan = [
+    {   Photo: Image01, 
+        Sub:'견적내기'
+    },
+    {   Photo: Image02, 
+        Sub:'구매 상담 신청'
+    },
+    {   Photo: Image03, 
+        Sub:'시승 신청'
+    },
+    {   Photo: Image04, 
+        Sub:'카탈로그'
+    }]
     
 
     return(
@@ -45,11 +64,23 @@ function Models () {
             <OurModels 
                 onMouseDown={onDragStart} 
                 onMouseMove={onDragMove} 
-                onMouseUP={onDragEnd} 
+                onMouseUp={onDragEnd} 
                 onMouseLeave={onDragEnd} 
                 ref={scrollRef}>
                 <Card/>
             </OurModels>
+
+            <BuyItemWrap>
+                {BuyPlan.map((list, idx) => {
+                    return(
+                    <BuyingCard key={idx}>
+                        <Thumbnail style={{backgroundImage:`url(${list.Photo})`}}/>                    
+                        <BuyTitle>{list.Sub}</BuyTitle>
+                    </BuyingCard>
+                    )
+                })}
+            </BuyItemWrap>
+
         </AllWrap>
     )
 
@@ -60,11 +91,10 @@ const OurModels = styled.div`
     flex-flow: row wrap;
     justify-content: flex-start;
     align-items: center;
-    max-width: 1220px;
+    max-width: 1550px;
     min-width: 400px;
     height: 100%;
     margin-top: 50px;
-    /* border: 1px solid white; */
     overflow-x: hidden;
 `
 
@@ -120,7 +150,42 @@ const DropBox = styled.div`
     align-items: center;
     padding: 5px 7px;
     cursor: pointer;
+`
 
+const BuyingCard = styled.div`
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+`
+
+const Thumbnail = styled.div`
+    width: 60px;
+    height: 60px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    :hover{
+    }
+`
+
+const BuyTitle = styled.div`
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 21px;
+`
+
+const BuyItemWrap = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1000px;
+    margin: 180px 0px;
+    padding: 0px 220px;
 `
 
 export default Models

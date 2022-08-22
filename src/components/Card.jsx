@@ -17,7 +17,7 @@ function Card() {
 
     const ModelInfo = [
         { Name: 'G70',
-          Nick: 'SHOTING BRAKE',
+          Nick: 'SHOOTING BRAKE',
           Photo: G70Thumbnail},
 
         { Name: 'G70',
@@ -53,8 +53,6 @@ function Card() {
           Photo: GV80Thumbnail},
     ]
 
-    console.log(ModelInfo)
-
   return (
     <AllCardWrap>
       {ModelInfo.map((list, idx) => {
@@ -69,9 +67,9 @@ function Card() {
           </div>
         </CardTitleWrap>
         <DetailDiv>
-        <div>
+        <TumbnailDiv>
           <ThumbNail style={{backgroundImage:`url(${list.Photo})`}}/>
-        </div>
+        </TumbnailDiv>
           <DetailViewBox>
             <DetailViewText>자세히 보기</DetailViewText>
           </DetailViewBox>
@@ -89,8 +87,8 @@ const AllCardWrap = styled.div`
 `
 
 const CardBackground = styled.div`
-  width: 335px;
-  height: 335px;
+  width: 447px;
+  height: 429px;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -104,18 +102,19 @@ const CardBackground = styled.div`
     transition-property: background-color;
     transition-timing-function: ease-in-out;
   }
-
-  /* border: 1px solid white; */
 `;
 
 const CardTitleWrap = styled.div`
+    display: flex;
+    flex-flow: column nowrap;
     width: 330px;
     height: 50px;
+    gap: 10px;
 `
 
 const ProductName = styled.span`
   color: white;
-  font-size: 27px;
+  font-size: 35px;
   font-weight: 300;
   line-height: 1.0667em;
   font-family: "genesis";
@@ -130,15 +129,15 @@ const ProductNick = styled.span`
 `;
 
 const DetailViewBox = styled.div`
-  width: 270px;
-  height: 38px;
+  width: 350px;
+  height: 55px;
   background-color: #141414;
   text-align: center;
   border: 1px solid white;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 23px;
+  margin-top: 43px;
   padding: 5px;
   color: white;
   cursor: pointer;
@@ -152,7 +151,7 @@ const DetailViewBox = styled.div`
 
 const DetailViewText = styled.span`
   font-family: "genesis";
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 20px;
 `;
@@ -161,9 +160,9 @@ const ThumbNail = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  width: 330px;
-  height: 150px;
-  margin-top: 20px;
+  width: 367px;
+  height: 139px;
+  margin-top: 40px;
 `;
 
 const DetailDiv = styled.div`
@@ -171,7 +170,7 @@ const DetailDiv = styled.div`
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    width: 300px;
+    width: 100%;
     position: relative;
     top: 0;
 
@@ -179,6 +178,14 @@ const DetailDiv = styled.div`
     transition: top 0.25s ease-in-out;
     top: -10px;
     }
+`
+
+const TumbnailDiv = styled.div`
+    width: 100%;
+    /* border: 1px solid white; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 export default Card;
