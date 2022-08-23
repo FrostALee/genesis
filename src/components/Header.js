@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState, useEffect, useRef} from "react"
 import styled from "styled-components"
 
 import Support from "../Img/support-icon.webp"
@@ -6,7 +6,19 @@ import Mypage from "../Img/mypage-icon.webp"
 import Logo from "../Img/logo.webp"
 import Search from "../Img/icon-search.webp"
 
+import BrandModal from "./BrandModal"
+
 function Header () {
+
+    const ModalRef = useRef()
+
+    const [onModal, setOnModal] = useState(false);
+
+    const ClickEvent = () => {
+        ModalRef.current.style.transition = 'all 0.75s ease-in-out'
+        ModalRef.current.style.transform = 'translateY()'
+    }
+        
 
     return(
         <AllWrap> 
@@ -19,7 +31,9 @@ function Header () {
                         <HeaderMenu>구매</HeaderMenu>
                         <HeaderMenu>체험</HeaderMenu>
                         <HeaderMenu>멤버스</HeaderMenu>
-                        <HeaderMenu>제네시스</HeaderMenu>
+                        
+                        <HeaderMenu onClick={() => {setOnModal(!onModal);}}>제네시스</HeaderMenu>
+                        {onModal === true ? <BrandModal close={setOnModal} ref={ModalRef}/> : null}
                         </HeaderUl>
                     </div>
                 </HeaderLeftWrap>

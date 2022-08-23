@@ -15,9 +15,6 @@ function SlideBox () {
     const SlideRef = useRef(null);
     const [slide, setSlide] = useState(0);
     
-    const TotalSlide = 6;
-    
-
     const NextSlide = () => {
         if(slide >= 6) {
             setSlide(0)
@@ -153,7 +150,7 @@ const SlideBoxWrap = styled.div`
     display: block;
     width: 100%;
     height: 100%;
-    /* position: relative; */
+    position: relative;
 `
 
 const SlideBoxWrap01 = styled.div`
