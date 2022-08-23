@@ -10,32 +10,11 @@ import Image06 from "../Img/genesis-main-keyvisual-futuring-genesis-pc-2560x900-
 import Image07 from "../Img/genesis-main-keyvisual-electrified-g80-main-hero-desktop-2560x900-kr.webp"
 
 
-
-
 function SlideBox () {
 
-    const SlideRef = useRef(null)
-    // const TotalSlide = 7
-
+    const SlideRef = useRef(null);
     const [slide, setSlide] = useState(0);
-
-    // console.log(slide)
-
-    function carousel(container) {
-        const slider = container.querySelector('.slider');
-        const items = slider.querySelectorAll('.item');
-
-        const sliderVisibleWidth = slider.offsetWidth;
-
-        function getTotalItemsWidth(items) {
-            const { left } = items[0].getBoundingClientRect();
-            const { right } = items[items.length - 1].getBoundingClientRect();
-            return right - left;
-          }
-      }
-
     
-
     const NextSlide = () => {
         if(slide >= 6) {
             setSlide(0)
@@ -54,8 +33,12 @@ function SlideBox () {
     }
 
     useEffect(() => {
-        SlideRef.current.style.transition = 'all 0.5s ease-in-out'
+        SlideRef.current.style.transition = 'all 0.75s ease-in-out'
         SlideRef.current.style.transform = `translateX(-${slide}00%)`
+
+        document.addEventListener("drag", event => {
+            NextSlide()
+        })
     })
 
     return(
@@ -63,6 +46,7 @@ function SlideBox () {
             <SlideWrap >
 
                 <SlideBoxWrap >
+
                         <TextBox style={{display : slide === 0 ? "" : "none"}}>
                             <TitleText>GENESIS</TitleText>
                             <TitleName>G70 SHOOTING BRAKE</TitleName>
@@ -97,7 +81,8 @@ function SlideBox () {
                             <TitleName>G80</TitleName>
                             <TitleSub>전기차 그 이상의 시작</TitleSub>
                         </TextBox>
-                    <SlideBoxWrap01 ref={SlideRef} id="slider">
+
+                    <SlideBoxWrap01 ref={SlideRef}>
                         <Image src={Image01} />
                         <Image src={Image02} />
                         <Image src={Image03} />
@@ -106,6 +91,7 @@ function SlideBox () {
                         <Image src={Image06} />
                         <Image src={Image07} />
                     </SlideBoxWrap01>
+
                         <DetailBox style={{display : slide === 5 ? "none" : ""}}>
                             <TextDetail>더 알아보기</TextDetail>
                             <TextDetail>견적내기</TextDetail>
@@ -114,8 +100,11 @@ function SlideBox () {
                             <TextDetail>더 알아보기</TextDetail>
                             <TextDetail>영상보기</TextDetail>
                         </DetailBox>
+
                 </SlideBoxWrap>
+
                 <ButtonBox>
+
                     <LeftButtonDiv onClick={() => {PrevSlide()}}>
                         <PrevButton/>
                     </LeftButtonDiv>
@@ -131,7 +120,9 @@ function SlideBox () {
                     <RightButtonDiv onClick={() => {NextSlide()}}>
                         <NextButton />
                     </RightButtonDiv>
+
                 </ButtonBox>
+
             </SlideWrap>
         </AllWrap>
     )
@@ -139,31 +130,34 @@ function SlideBox () {
 
 const AllWrap = styled.div`
     width: 100%;
-    height: 100%;
+    height: 900px;
     margin-top: 60px;
     /* position: relative; */
+    /* border: 1px solid white; */
 `
 
 const SlideWrap = styled.div`
     display: flex;
     width: 100%;
-    height: 750px;
+    height: 100%;
     /* overflow: hidden; */
     margin: 0 auto;
     cursor: grab;
+    /* border: 1px solid white; */
 `
 
 const SlideBoxWrap = styled.div`
     display: block;
     width: 100%;
-    height: 750px;
+    height: 100%;
+    position: relative;
 `
-
 
 const SlideBoxWrap01 = styled.div`
     display: flex;
-    width: 100%;
-    height: 750px;
+    max-width: 100%;
+    min-width: 720px;
+    height: 100%;
     z-index: -1;
 `
 
@@ -173,7 +167,7 @@ const TextBox = styled.div`
     margin-top: 100px;
     font-family: "genesis";
     font-weight: normal;
-    line-height: 1.0667;
+    line-height: 1.0667em;
     letter-spacing: -0.025em;
     word-break: keep-all;
     word-wrap: break-word;
@@ -181,12 +175,6 @@ const TextBox = styled.div`
     position: absolute;
     width: 100%;
     z-index: 2;
-    transition: all 1s ease-in-out;
-    transition-property: opacity, transform;
-    transition-duration: 2s, 2s;
-    opacity: 100%;
-    transform: translateX(-5%);
-    background-color: transparent;
 `
 
 const DetailBox = styled.div`
@@ -199,12 +187,11 @@ const DetailBox = styled.div`
     letter-spacing: -0.025em;
     word-break: keep-all;
     word-wrap: break-word;
-    padding-left: 160px;
+    padding-left: 226px;
     position: absolute;
     top: 570px;
     width: 100%;
 `
-
 
 const TitleText = styled.span`
     font-size: 18px;
@@ -216,12 +203,11 @@ const TitleText = styled.span`
     /* margin-block-end: 0.83em; */
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-
 `
 
 const TitleName = styled.span`
     font-size: 60px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 21px;
     color: white;
     /* margin-left: 60px; */
@@ -229,7 +215,6 @@ const TitleName = styled.span`
     margin-block-end: 30px;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-
 `
 
 const TitleSub = styled.span`
@@ -244,13 +229,12 @@ const TitleSub = styled.span`
     margin-inline-end: 0px;
 `
 
-
-
 const TextDetail = styled.span`
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.0667;
     color: white;
+    cursor: pointer;
 `
 
 const ButtonBox = styled.div`
@@ -261,8 +245,8 @@ const ButtonBox = styled.div`
     word-wrap: break-word;
     /* padding-left: 226px; */
     position: absolute;
-    top: 670px;
-    left: 750px;
+    top: 850px;
+    left: 850px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -271,6 +255,7 @@ const ButtonBox = styled.div`
 
 const Image = styled.img`
     object-fit: cover;
+    /* overflow-x: hidden; */
     width: 100%;
     height: 100%;
 `

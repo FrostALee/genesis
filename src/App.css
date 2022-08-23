@@ -2,7 +2,20 @@
   background-color: #111;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+  }
+
+body{
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}  
+
 span{
+  background-color: transparent;
+}
+
+p{
   background-color: transparent;
 }
 
