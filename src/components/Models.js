@@ -105,7 +105,7 @@ const AllWrap = styled.div`
     align-items: flex-start;
     padding: 0px 220px;
     gap: 40px;
-    margin-top: 200px;
+    margin-top: 500px;
     margin-bottom: 200px;
 `
 

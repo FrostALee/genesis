@@ -157,7 +157,7 @@ const SlideBoxWrap01 = styled.div`
     display: flex;
     max-width: 100%;
     min-width: 720px;
-    height: 100%;
+    height: 1150px;
     z-index: -1;
 `
 
@@ -171,9 +171,10 @@ const TextBox = styled.div`
     letter-spacing: -0.025em;
     word-break: keep-all;
     word-wrap: break-word;
-    padding-left: 226px;
+    padding-left: 360px;
     position: absolute;
     width: 100%;
+    gap: 20px;
     z-index: 2;
 `
 
@@ -187,14 +188,14 @@ const DetailBox = styled.div`
     letter-spacing: -0.025em;
     word-break: keep-all;
     word-wrap: break-word;
-    padding-left: 226px;
+    padding-left: 350px;
     position: absolute;
-    top: 570px;
+    top: 850px;
     width: 100%;
 `
 
 const TitleText = styled.span`
-    font-size: 18px;
+    font-size: 26px;
     font-weight: 700;
     line-height: 21px;
     color: white;
@@ -206,7 +207,7 @@ const TitleText = styled.span`
 `
 
 const TitleName = styled.span`
-    font-size: 60px;
+    font-size: 80px;
     font-weight: 600;
     line-height: 21px;
     color: white;
@@ -218,7 +219,7 @@ const TitleName = styled.span`
 `
 
 const TitleSub = styled.span`
-    font-size: 18px;
+    font-size: 26px;
     font-weight: 700;
     line-height: 21px;
     color: white;
@@ -230,8 +231,8 @@ const TitleSub = styled.span`
 `
 
 const TextDetail = styled.span`
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 700;
     line-height: 1.0667;
     color: white;
     cursor: pointer;
@@ -245,8 +246,8 @@ const ButtonBox = styled.div`
     word-wrap: break-word;
     /* padding-left: 226px; */
     position: absolute;
-    top: 850px;
-    left: 850px;
+    top: 1000px;
+    left: 950px;
     display: flex;
     justify-content: center;
     align-items: center;

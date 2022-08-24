@@ -11,6 +11,8 @@ import NeerContent from "./components/NeerContent";
 import Footer from "./components/Footer";
 import BrandModal from "./components/BrandModal";
 import ProductModal from "./components/ProductModal";
+import Brand from "./components/Brand";
+import Main from "./components/Main";
 
 import "./App.css"
 
@@ -19,14 +21,10 @@ function App() {
   return (
     <>
     <Header/>
-      {/* <BrandModal></BrandModal> */}
-      <ProductModal></ProductModal>
-    <SlideBox/>
-    <Models/>
-    <RolePage/>
-    <Functional/>
-    <NeerContent/>
-    <Footer/>
+    <Routes>
+      <Route path="/" element={<Main/>}></Route>
+      <Route path="/brand" element={<Brand/>}></Route>
+    </Routes>
     </>
   );
 }

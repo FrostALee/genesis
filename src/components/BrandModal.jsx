@@ -1,8 +1,16 @@
 import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
-function BrandModal() {
+function BrandModal(props) {
+
+    const navigate = useNavigate();
+
+    const CloseModal = () => {
+        props.close();
+        navigate("/brand")
+      };
 
     return(
         <RelativeWrap>
@@ -18,7 +26,7 @@ function BrandModal() {
 
                     <RightWrap>
                         <RightTitle>브랜드</RightTitle>
-                        <TextSpan>브랜드 소개</TextSpan>
+                        <TextSpan onClick={() => {CloseModal()}}>브랜드 소개</TextSpan>
                         <TextSpan>비전</TextSpan>
                     </RightWrap>
 
@@ -99,6 +107,7 @@ const LeftTitle = styled.span`
     font-weight: 700;
     font-size: 25px;
     margin-bottom: 20px;
+    font-family: "genesis";
 `
 
 const TextSpan = styled.span`
@@ -106,6 +115,7 @@ const TextSpan = styled.span`
     line-height: 25px;
     font-weight: 400;
     font-size: 16px;
+    font-family: "genesis";
     cursor: pointer;
     :hover{
         color: white;
@@ -130,6 +140,7 @@ const RightTitle = styled.span`
     font-weight: 700;
     font-size: 25px;
     margin-bottom: 20px;
+    font-family: "genesis";
 `
 
 const RightAllWrap = styled.div`
@@ -142,6 +153,7 @@ const TextSpanNone = styled.span`
     line-height: 25px;
     font-weight: 400;
     font-size: 16px;
+    font-family: "genesis";
 `
 
 const RelativeWrap = styled.div`
@@ -152,7 +164,7 @@ const RelativeWrap = styled.div`
     width: 100%;
     transition: all 1s ease-in-out;
 
-    
+
 `
 
 export default BrandModal
