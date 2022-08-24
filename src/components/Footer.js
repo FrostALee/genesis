@@ -71,8 +71,6 @@ function Footer() {
         'PR 센터'
     ]
 
-    console.log(List)
-
     const NoticeText = [
         'Genesis Connected Services 이용약관 개정 공지',
         '제네시스 멤버십 제휴서비스 종료 안내(딜카)',

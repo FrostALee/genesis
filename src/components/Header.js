@@ -7,33 +7,30 @@ import Logo from "../Img/logo.webp"
 import Search from "../Img/icon-search.webp"
 
 import BrandModal from "./BrandModal"
+import ProductModal from "./ProductModal"
+import { useNavigate } from "react-router-dom"
 
 function Header () {
 
-    const ModalRef = useRef()
+    const navigate = useNavigate();
 
     const [onModal, setOnModal] = useState(false);
-
-    const ClickEvent = () => {
-        ModalRef.current.style.transition = 'all 0.75s ease-in-out'
-        ModalRef.current.style.transform = 'translateY()'
-    }
-        
-
+    const [ModelModal, setModelModal] = useState(false);
+     
     return(
         <AllWrap> 
             <HeaderWrap>
                 <HeaderLeftWrap>
-                        <LogoBox/>
+                        <LogoBox onClickCapture={() => {navigate('/')}}/>
                     <div>
                         <HeaderUl>
-                        <HeaderMenu>모델</HeaderMenu>
+                        {ModelModal === true ? <ProductModal close={setModelModal}/> : null}
+                        <HeaderMenu onClick={() => {setModelModal(!ModelModal);}}>모델</HeaderMenu>
                         <HeaderMenu>구매</HeaderMenu>
                         <HeaderMenu>체험</HeaderMenu>
                         <HeaderMenu>멤버스</HeaderMenu>
-                        
                         <HeaderMenu onClick={() => {setOnModal(!onModal);}}>제네시스</HeaderMenu>
-                        {onModal === true ? <BrandModal close={setOnModal} ref={ModalRef}/> : null}
+                        {onModal === true ? <BrandModal close={setOnModal}/> : null}
                         </HeaderUl>
                     </div>
                 </HeaderLeftWrap>
